@@ -1,0 +1,3 @@
+interface PessoaMonitora: PessoaComAcessoALaboratorio, MantenedorLaboratorio {
+
+}
