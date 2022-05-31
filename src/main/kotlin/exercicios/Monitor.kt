@@ -1,5 +1,6 @@
-class Aluno(): PessoaMonitora {
+package exercicios
 
+class Monitor : PessoaMonitora {
   override fun validarAcesso(laboratorio: Laboratorio) {
     TODO("Not yet implemented")
   }

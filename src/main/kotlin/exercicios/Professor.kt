@@ -1,3 +1,5 @@
+package exercicios
+
 class Professor(id: Long, nome: String) : Funcionario(id, nome) {
 
   override fun validarAcesso(laboratorio: Laboratorio): Boolean {

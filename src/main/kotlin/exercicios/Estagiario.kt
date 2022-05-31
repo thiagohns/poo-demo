@@ -1,4 +1,7 @@
-class Monitor : PessoaMonitora {
+package exercicios
+
+class Estagiario(id: Long, nome: String) : Funcionario(id, nome), PessoaComAcessoALaboratorio,
+  MantenedorLaboratorio {
   override fun validarAcesso(laboratorio: Laboratorio) {
     TODO("Not yet implemented")
   }
