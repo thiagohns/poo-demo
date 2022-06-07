@@ -1,11 +1,17 @@
 package exercicio_2
 
+import exercicio_2.usecase.AuthorizeInvoice
+
 class Controller(
-  private val integrador: Integrador
+  private val authorizeInvoice: AuthorizeInvoice
 ) {
 
-  fun autorizarInvoice(invoice: Invoice) {
-    integrador.enviarParaIntegrador(invoice)
+  fun autorizarInvoice(invoice: InvoiceIn) {
+    authorizeInvoice.execute(Invoice.of(invoice))
   }
+
+}
+
+data class InvoiceIn(val type: String, val number: Int) {
 
 }
