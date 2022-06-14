@@ -2,7 +2,8 @@ package exercicio_2
 
 data class Invoice(
   val tipo: String,
-  val enderecoEntrega: String
+  val enderecoEntrega: String,
+  val items: List<Item>
 ) {
   companion object {
     fun of(invoiceIn: InvoiceIn): Invoice {
@@ -10,3 +11,8 @@ data class Invoice(
     }
   }
 }
+
+data class Item(
+  val id: Long,
+  val description: String
+)
