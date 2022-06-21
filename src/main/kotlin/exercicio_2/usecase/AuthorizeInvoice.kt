@@ -1,6 +1,6 @@
 package exercicio_2.usecase
 
-import exercicio_2.Integrador
+import exercicio_2.gateway.Integrador
 import exercicio_2.Invoice
 import exercicio_2.validator.InvoiceValidator
 

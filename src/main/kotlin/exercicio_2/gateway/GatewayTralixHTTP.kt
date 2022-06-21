@@ -1,4 +1,6 @@
-package exercicio_2
+package exercicio_2.gateway
+
+import exercicio_2.Invoice
 
 class GatewayTralixHTTP: Integrador {
 
