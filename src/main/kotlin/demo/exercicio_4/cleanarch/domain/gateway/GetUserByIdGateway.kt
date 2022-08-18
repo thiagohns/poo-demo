@@ -2,7 +2,8 @@ package demo.exercicio_4.cleanarch.domain.gateway
 
 import demo.exercicio_4.dto.UserDTO
 
-interface SaveUserGateway {
+interface GetUserByIdGateway {
 
-  fun execute(userDTO: UserDTO)
+  fun execute(id: String): UserDTO
+
 }
