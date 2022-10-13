@@ -3,7 +3,9 @@ package demo.exercicio_4.repository
 import demo.exercicio_4.dto.UserDTO
 import javax.persistence.Entity
 import javax.persistence.Id
+import javax.persistence.Table
 
+@Table(name ="user")
 @Entity
 data class UserEntity(
   @Id
