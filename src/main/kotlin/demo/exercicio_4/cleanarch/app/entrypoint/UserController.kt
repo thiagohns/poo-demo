@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 class UserController(
     private val saveUserUseCase: SaveUserUseCase
 ) {
-    @PostMapping()
+    @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
     fun saveUser(userDTO: UserDTO){
         saveUserUseCase.execute(userDTO)
     }
