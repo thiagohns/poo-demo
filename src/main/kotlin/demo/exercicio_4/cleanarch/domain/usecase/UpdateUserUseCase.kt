@@ -9,4 +9,6 @@ class UpdateUserUseCase(private val saveUserGateway: SaveUserGateway
     fun execute(userDto: UserDTO) {
         saveUserGateway.execute(userDto)
     }
+
+
 }
