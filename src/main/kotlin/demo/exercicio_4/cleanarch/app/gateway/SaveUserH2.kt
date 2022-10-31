@@ -4,7 +4,9 @@ import demo.exercicio_4.cleanarch.domain.gateway.SaveUserGateway
 import demo.exercicio_4.dto.UserDTO
 import demo.exercicio_4.repository.UserEntity
 import demo.exercicio_4.repository.UserRepository
+import org.springframework.stereotype.Component
 
+@Component
 class SaveUserH2(private val repository: UserRepository) : SaveUserGateway {
 
   override fun execute(dto: UserDTO) {
