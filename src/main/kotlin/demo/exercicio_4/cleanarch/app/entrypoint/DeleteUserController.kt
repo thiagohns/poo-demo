@@ -1,9 +1,6 @@
 package demo.exercicio_4.cleanarch.app.entrypoint
 
 import demo.exercicio_4.cleanarch.domain.usecase.DeleteUserUseCase
-import demo.exercicio_4.cleanarch.domain.usecase.SaveUserUseCase
-import demo.exercicio_4.dto.UserDTO
-import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 
 @RestController

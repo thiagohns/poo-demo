@@ -11,6 +11,7 @@ class DeleteUserUseCase(
 
   fun execute(id: String) {
     getUserByIdUseCase.execute(id)
+
     deleteUserGateway.execute(id)
   }
 }
