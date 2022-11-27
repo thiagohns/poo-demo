@@ -12,4 +12,6 @@ class DeleteUserController(
     fun deleteUser(@PathVariable id: String){
         deleteUserUseCase.execute(id)
     }
+
+    //teste de commit
 }
