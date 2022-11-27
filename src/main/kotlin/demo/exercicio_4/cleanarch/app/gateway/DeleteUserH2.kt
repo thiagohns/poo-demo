@@ -1,7 +1,7 @@
 package demo.exercicio_4.cleanarch.app.gateway
 
+import demo.exercicio_4.cleanarch.app.repository.UserRepository
 import demo.exercicio_4.cleanarch.domain.gateway.DeleteUserGateway
-import demo.exercicio_4.repository.UserRepository
 import org.springframework.stereotype.Component
 
 @Component
