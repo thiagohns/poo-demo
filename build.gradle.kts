@@ -23,6 +23,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.11")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+
 }
 
 tasks.withType<KotlinCompile> {

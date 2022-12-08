@@ -1,9 +1,9 @@
 package demo.exercicio_4.dto
 
 data class UserDTO(
-  val id: String,
+  val userId: String,
   val name: String,
   val email: String,
   val password: String,
-  val addressesUserDTO: AddressesUserDTO
+  val addressesData: List<AddressesData> //= mutableListOf()
 )
