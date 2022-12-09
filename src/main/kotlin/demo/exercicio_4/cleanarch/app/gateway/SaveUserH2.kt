@@ -16,7 +16,7 @@ class SaveUserH2(
   override fun execute(userId: User): Mono<User> {
     return Mono.fromCallable {
       repository.save(UserEntity.fromDomain(userId))
-    }.map<User?> { it.toDomain() }
+    }.map { it.toDomain() }
       .subscribeOn(Schedulers.boundedElastic())
   }
 }
