@@ -2,7 +2,7 @@ package demo.exercicio_4.cleanarch.app.gateway
 
 import demo.exercicio_4.cleanarch.app.config.ApiConfig
 import demo.exercicio_4.cleanarch.domain.gateway.GetAddressesDataGateway
-import demo.exercicio_4.dto.AddressResponse
+import demo.exercicio_4.cleanarch.domain.model.AddressResponse
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Mono

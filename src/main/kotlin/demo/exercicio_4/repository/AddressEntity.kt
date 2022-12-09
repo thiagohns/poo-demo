@@ -1,6 +1,6 @@
 package demo.exercicio_4.repository
 
-import demo.exercicio_4.dto.AddressResponse
+import demo.exercicio_4.cleanarch.domain.model.AddressResponse
 import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.GeneratedValue

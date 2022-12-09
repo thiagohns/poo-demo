@@ -1,8 +1,8 @@
-package demo.exercicio_4.dto
+package demo.exercicio_4.cleanarch.domain.model
 
 import demo.exercicio_4.repository.AddressEntity
 
-data class AddressResponse(
+data class AddressResponse( // Melhorar ????
   val zipCode: String,
   val street: String,
   val complement: String,

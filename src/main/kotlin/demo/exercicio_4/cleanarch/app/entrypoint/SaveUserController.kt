@@ -1,7 +1,7 @@
 package demo.exercicio_4.cleanarch.app.entrypoint
 
+import demo.exercicio_4.cleanarch.domain.model.User
 import demo.exercicio_4.cleanarch.domain.usecase.SaveUserUseCase
-import demo.exercicio_4.dto.UserDTO
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -15,8 +15,8 @@ class SaveUserController(
   private val saveUserUseCase: SaveUserUseCase
 ) {
   @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
-  fun saveUser(@RequestBody userDTO: UserDTO): Mono<Void> {
-    return saveUserUseCase.execute(userDTO)
+  fun saveUser(@RequestBody user: User): Mono<Void> {
+    return saveUserUseCase.execute(user)
       .then()
   }
 }

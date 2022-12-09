@@ -1,9 +1,9 @@
 package demo.exercicio_4.cleanarch.domain.gateway
 
-import demo.exercicio_4.dto.UserDTO
+import demo.exercicio_4.cleanarch.domain.model.User
 
 interface ListUsersGateway {
 
-  fun execute(): List<UserDTO>
+  fun execute(): List<User>
 
 }

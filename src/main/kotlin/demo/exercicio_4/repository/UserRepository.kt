@@ -8,11 +8,6 @@ import javax.transaction.Transactional
 interface UserRepository : CrudRepository<UserEntity, String> {
   fun findByUserId(UserId: String): UserEntity?
 
-//  @Transactional
-//  @Modifying
-//  @Query("SELECT inv from users inv")
-//  fun getUsersWithAddressesLists(userId: String): List<UserEntity>
-
   @Transactional
   @Modifying
   @Query(

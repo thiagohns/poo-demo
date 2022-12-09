@@ -1,7 +1,7 @@
 package demo.exercicio_4.cleanarch.app.entrypoint
 
+import demo.exercicio_4.cleanarch.domain.model.User
 import demo.exercicio_4.cleanarch.domain.usecase.GetUserByIdUseCase
-import demo.exercicio_4.dto.UserDTO
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -15,6 +15,6 @@ class GetUserController(
     private val getUserByIdUseCase: GetUserByIdUseCase
 ) {
     @GetMapping("/{userId}", consumes = [MediaType.APPLICATION_JSON_VALUE])
-    fun getUser(@PathVariable userId: String): Mono<UserDTO> =
+    fun getUser(@PathVariable userId: String): Mono<User> =
         getUserByIdUseCase.execute(userId)
 }

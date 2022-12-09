@@ -1,6 +1,6 @@
 package demo.exercicio_4.repository
 
-import demo.exercicio_4.dto.UserDTO
+import demo.exercicio_4.cleanarch.domain.model.User
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -40,7 +40,7 @@ data class UserEntity(
   }
 
   companion object {
-    fun fromDomain(userDTO: UserDTO) = UserEntity(
+    fun fromDomain(userDTO: User) = UserEntity(
       name = userDTO.name,
       email = userDTO.email,
       password = userDTO.password
@@ -48,18 +48,11 @@ data class UserEntity(
   }
 
   fun toDomain() =
-    UserDTO(
+    User(
       userId = userId.toString(),
       name = name,
       email = email,
       password = password,
       addressesData = listOf()
-//      addressesData = addresses.map {
-//        AddressesData(
-//          zipCode = it.zipCode,
-//          type = it.complement,
-//          number = it.complement
-//        )
-//      }
     )
 }

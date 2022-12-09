@@ -5,7 +5,9 @@ import demo.exercicio_4.repository.UserRepository
 import org.springframework.stereotype.Component
 
 @Component
-class DeleteUserH2 (private val repository: UserRepository): DeleteUserGateway {
+class DeleteUserH2(
+  private val repository: UserRepository
+) : DeleteUserGateway {
   override fun execute(id: String) {
     repository.deleteById(id)
   }
