@@ -25,6 +25,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.11")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("javax.inject:javax.inject:1")
+
 
 }
 

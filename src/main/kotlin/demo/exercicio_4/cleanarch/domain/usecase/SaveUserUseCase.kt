@@ -4,10 +4,10 @@ import demo.exercicio_4.cleanarch.domain.gateway.GetAddressesDataGateway
 import demo.exercicio_4.cleanarch.domain.gateway.SaveAddressesGateway
 import demo.exercicio_4.cleanarch.domain.gateway.SaveUserGateway
 import demo.exercicio_4.cleanarch.domain.model.User
-import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
+import javax.inject.Named
 
-@Component
+@Named
 class SaveUserUseCase(
   private val saveUserGateway: SaveUserGateway, // Salvo os dados do user na base
   private val getAddressesDataGateway: GetAddressesDataGateway, // User existente, busca os dados de endereço em uma api externa, pelo cep

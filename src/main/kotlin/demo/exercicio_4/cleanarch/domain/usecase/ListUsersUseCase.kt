@@ -2,9 +2,9 @@ package demo.exercicio_4.cleanarch.domain.usecase
 
 import demo.exercicio_4.cleanarch.domain.gateway.ListUsersGateway
 import demo.exercicio_4.cleanarch.domain.model.User
-import org.springframework.stereotype.Component
+import javax.inject.Named
 
-@Component
+@Named
 class ListUsersUseCase(
   private val gateway: ListUsersGateway
 ) {

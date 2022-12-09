@@ -1,9 +1,9 @@
 package demo.exercicio_4.cleanarch.domain.usecase
 
 import demo.exercicio_4.cleanarch.domain.gateway.DeleteUserGateway
-import org.springframework.stereotype.Component
+import javax.inject.Named
 
-@Component
+@Named
 class DeleteUserUseCase(
   private val getUserByIdUseCase: GetUserByIdUseCase,
   private val deleteUserGateway: DeleteUserGateway
