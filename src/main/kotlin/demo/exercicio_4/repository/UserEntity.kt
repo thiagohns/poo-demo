@@ -10,7 +10,7 @@ import javax.persistence.Table
 @Entity
 @Table(name = "users")
 data class UserEntity(
-  val userId: String,
+  val userId: Long,
   var name: String,
   var email: String,
   var password: String,
