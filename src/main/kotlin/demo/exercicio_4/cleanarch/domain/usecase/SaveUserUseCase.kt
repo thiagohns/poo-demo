@@ -3,6 +3,7 @@ package demo.exercicio_4.cleanarch.domain.usecase
 import demo.exercicio_4.cleanarch.domain.gateway.GetAddressesDataGateway
 import demo.exercicio_4.cleanarch.domain.gateway.SaveAddressesGateway
 import demo.exercicio_4.cleanarch.domain.gateway.SaveUserGateway
+import demo.exercicio_4.cleanarch.domain.model.Address
 import demo.exercicio_4.cleanarch.domain.model.User
 import reactor.core.publisher.Mono
 import javax.inject.Named
@@ -18,7 +19,7 @@ class SaveUserUseCase(
     return Mono.just(user)
       .flatMap { saveUserGateway.execute(user) }
       .flatMap { getAddressesDataGateway.execute(user.addressesData.first().zipCode) }
-      .flatMap { saveAddressesGateway.execute(it) }
+      .flatMap { saveAddressesGateway.execute(Address.toDomain(it, user.userId)) }
       .then()
   }
 }
