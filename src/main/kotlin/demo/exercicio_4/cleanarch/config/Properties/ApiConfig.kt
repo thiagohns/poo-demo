@@ -5,5 +5,6 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 @ConfigurationProperties(prefix = "api.external")
 class ApiConfig {
+    lateinit var getZipCodeAddress: String
     lateinit var uri: String
 }
