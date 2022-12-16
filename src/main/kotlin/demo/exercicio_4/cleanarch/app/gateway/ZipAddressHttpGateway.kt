@@ -12,7 +12,7 @@ class ZipAddressHttpGateway(
     fun getZipCode(zipCode: String): Mono<ZipAddressesUser> {
         return webClient.get()
             .uri {
-                it.path("/zipCode")
+                it.path("/$zipCode")
                     .build()
             }
             .retrieve()
