@@ -10,4 +10,4 @@ spring:
 
 api:
   external:
-    get-info-address: http://viacep.com.br/ws/<CEP>/json
+    get-zipcode-address: http://viacep.com.br/ws/{cep}/json

@@ -1,6 +1,7 @@
 package demo.exercicio_4.cleanarch.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import demo.exercicio_4.cleanarch.config.Properties.ApiConfig
 import io.netty.channel.ChannelOption
 import io.netty.handler.timeout.ReadTimeoutHandler
 import io.netty.handler.timeout.WriteTimeoutHandler
@@ -24,7 +25,7 @@ class WebClientConfig(private val apiConfig: ApiConfig) {
     fun webClientInfo(exchangeStrategies: ExchangeStrategies, httpClient: HttpClient): WebClient =
         WebClient.builder()
             .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-            .baseUrl(apiConfig.getInfoAddress)
+            .baseUrl(apiConfig.getZipCodeAddress)
             .clientConnector(ReactorClientHttpConnector(httpClient))
             .exchangeStrategies(exchangeStrategies)
             .build()

@@ -14,6 +14,6 @@ class GetUserController(
     private val getUserByIdUseCase: GetUserByIdUseCase
 ) {
     @GetMapping("/{id}", consumes = [MediaType.APPLICATION_JSON_VALUE])
-    fun getUser(@PathVariable id: String): UserDTO? =
+    fun useCase(@PathVariable id: String): UserDTO? =
         getUserByIdUseCase.execute(id)
 }
