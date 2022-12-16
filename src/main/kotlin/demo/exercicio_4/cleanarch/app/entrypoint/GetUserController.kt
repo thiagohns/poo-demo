@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 class GetUserController(
     private val getUserByIdUseCase: GetUserByIdUseCase
 ) {
-    @GetMapping("/{id}", consumes = [MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping("/{id}")
     fun useCase(@PathVariable id: String): UserDTO? =
         getUserByIdUseCase.execute(id)
 }

@@ -4,6 +4,6 @@ data class UserDTO(
   val id: String,
   val name: String,
   val email: String,
-  val password: String,
-  val addressesUser: List<AddressesUser>
+  val password: String
+  //val addressesUser: List<AddressesUser>
 )
