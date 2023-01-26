@@ -7,7 +7,20 @@ spring:
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
 
+#spring:
+#  application:
+#    name: poo-demo
+#  datasource:
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/poo
+#    username: root
+#    password: "Ual7300!"
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
 
 api:
   external:
-    get-zipcode-address: http://viacep.com.br/ws/{zipCode}/json
+    get-zipcode-address: http://viacep.com.br/ws/
+

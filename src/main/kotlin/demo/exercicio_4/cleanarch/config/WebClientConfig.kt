@@ -1,15 +1,15 @@
 package demo.exercicio_4.cleanarch.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import demo.exercicio_4.cleanarch.config.Properties.ApiConfig
 import io.netty.channel.ChannelOption
 import io.netty.handler.timeout.ReadTimeoutHandler
 import io.netty.handler.timeout.WriteTimeoutHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
-import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpHeaders.CONTENT_TYPE
 import org.springframework.http.MediaType
+import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.http.client.reactive.ReactorClientHttpConnector
 import org.springframework.http.codec.json.Jackson2JsonDecoder
 import org.springframework.http.codec.json.Jackson2JsonEncoder
@@ -18,14 +18,17 @@ import org.springframework.web.reactive.function.client.WebClient
 import reactor.netty.http.client.HttpClient
 
 @Configuration
-class WebClientConfig(private val apiConfig: ApiConfig) {
+class WebClientConfig {
 
     @Primary
     @Bean
-    fun webClientInfo(exchangeStrategies: ExchangeStrategies, httpClient: HttpClient): WebClient =
+    fun webClientInfo(
+        exchangeStrategies: ExchangeStrategies,
+        httpClient: HttpClient
+    ): WebClient =
         WebClient.builder()
-            .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-            .baseUrl(apiConfig.getZipCodeAddress)
+            .defaultHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
+            .baseUrl("http://viacep.com.br/ws/")
             .clientConnector(ReactorClientHttpConnector(httpClient))
             .exchangeStrategies(exchangeStrategies)
             .build()

@@ -1,9 +1,9 @@
 package demo.exercicio_4.dto
 
 data class UserDTO(
-  val id: String,
+  val Id: String,
   val name: String,
   val email: String,
-  val password: String
-  //val addressesUser: List<AddressesUser>
+  val password: String,
+  val addressesUser: List<AddressesUserDTO>? = listOf()
 )
