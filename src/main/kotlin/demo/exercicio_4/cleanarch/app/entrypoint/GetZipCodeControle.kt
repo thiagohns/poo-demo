@@ -1,9 +1,7 @@
 package demo.exercicio_4.cleanarch.app.entrypoint
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import demo.exercicio_4.cleanarch.domain.usecase.ZipCodeUserCase
-import demo.exercicio_4.dto.ZipAddressesUser
-import org.springframework.http.MediaType
+import demo.exercicio_4.dto.ZipAddressesUserDTO
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,8 +14,7 @@ class GetZipCodeControle(
   private val zipCodeUserCase: ZipCodeUserCase
 ) {
   @GetMapping("/zipcode/{zipcode}")
-  @JsonIgnore
-  fun getZipCode(@PathVariable zipcode: String): Mono<ZipAddressesUser> {
+  fun getZipCode(@PathVariable zipcode: String): Mono<ZipAddressesUserDTO> {
     return zipCodeUserCase.execute(zipcode)
   }
 }
