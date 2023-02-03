@@ -9,10 +9,13 @@ import org.springframework.stereotype.Component
 class SaveUserUseCase(
   private val saveUserGateway: SaveUserGateway,
   private val zipAddressGateway: ZipAddressGateway
-
 ) {
 
   fun execute(userDto: UserDTO) {
+    userDto.addressesUser
+      ?.map {
+        zipAddressGateway.execute(it.zip)
+      }
     saveUserGateway.execute(userDto)
   }
 
