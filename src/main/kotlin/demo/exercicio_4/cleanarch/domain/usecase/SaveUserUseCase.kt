@@ -1,25 +1,29 @@
 package demo.exercicio_4.cleanarch.domain.usecase
 
 import demo.exercicio_4.cleanarch.domain.gateway.GetAddressesDataGateway
-import demo.exercicio_4.cleanarch.domain.gateway.SaveAddressesGateway
 import demo.exercicio_4.cleanarch.domain.gateway.SaveUserGateway
-import demo.exercicio_4.cleanarch.domain.model.Address
 import demo.exercicio_4.cleanarch.domain.model.User
-import reactor.core.publisher.Mono
 import javax.inject.Named
 
 @Named
 class SaveUserUseCase(
-  private val saveUserGateway: SaveUserGateway, // Salvo os dados do user na base
-  private val getAddressesDataGateway: GetAddressesDataGateway, // User existente, busca os dados de endereço em uma api externa, pelo cep
-  private val saveAddressesGateway: SaveAddressesGateway // salva as infos do endereço na base
+  private val saveUserGateway: SaveUserGateway,
+  private val getAddressesDataGateway: GetAddressesDataGateway,
 ) {
 
-  fun execute(user: User): Mono<Void> { //verificar referencia na consumer, como fazemos a relacao dos items na invoice.
-    return Mono.just(user)
-      .flatMap { saveUserGateway.execute(user) }
-      .flatMap { getAddressesDataGateway.execute(user.addressesData.first().zipCode) }
-      .flatMap { saveAddressesGateway.execute(Address.toDomain(it, user.userId)) }
-      .then()
+  fun execute(user: User) {
+    user.addressesData
+      .map { getAddressesDataGateway.execute(it.zipCode) }
+    saveUserGateway.execute(user)
   }
 }
+
+//fun execute(user: User): Mono<User> {
+//  return Mono.just(user)
+//    .flatMap { getAddressesDataGateway.execute() }
+//    .map { user }
+//    .flatMap { saveUserGateway.execute(user) }
+//}
+//TODO
+// Salvar user + endereco no mesmo momento...
+// Como obter todos os endercos do user...

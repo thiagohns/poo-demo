@@ -6,7 +6,6 @@ import org.springframework.data.repository.CrudRepository
 import javax.transaction.Transactional
 
 interface UserRepository : CrudRepository<UserEntity, String> {
-  fun findByUserId(UserId: String): UserEntity?
 
   @Transactional
   @Modifying

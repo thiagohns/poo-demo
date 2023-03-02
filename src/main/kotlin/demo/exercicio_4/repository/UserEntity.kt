@@ -10,31 +10,29 @@ import javax.persistence.Table
 @Entity
 @Table(name = "users")
 data class UserEntity(
-  val userId: Long,
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  val id: Long? = null,
   var name: String,
   var email: String,
   var password: String,
-
-  ) {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  val id: Long? = null
+  var addresses: List<AddressEntity>
+) {
 
   companion object {
     fun fromDomain(user: User) = UserEntity(
-      userId = user.userId,
       name = user.name,
       email = user.email,
-      password = user.password
+      password = user.password,
+      addresses = user.addressesData. //Falta finalizar para que possa alvar user + addresses
     )
   }
 
   fun toDomain() =
     User(
-      userId = userId,
       name = name,
       email = email,
       password = password,
-      addressesData = listOf()
+      addressesData = addresses
     )
 }

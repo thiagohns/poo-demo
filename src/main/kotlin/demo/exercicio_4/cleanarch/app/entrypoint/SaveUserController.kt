@@ -15,8 +15,7 @@ class SaveUserController(
   private val saveUserUseCase: SaveUserUseCase
 ) {
   @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
-  fun saveUser(@RequestBody user: User): Mono<Void> {
+  fun saveUser(@RequestBody user: User) {
     return saveUserUseCase.execute(user)
-      .then()
   }
 }

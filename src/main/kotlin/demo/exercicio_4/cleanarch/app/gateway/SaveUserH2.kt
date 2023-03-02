@@ -13,9 +13,9 @@ class SaveUserH2(
   private val repository: UserRepository
 ) : SaveUserGateway {
 
-  override fun execute(userId: User): Mono<User> {
+  override fun execute(user: User): Mono<User> {
     return Mono.fromCallable {
-      repository.save(UserEntity.fromDomain(userId))
+      repository.save(UserEntity.fromDomain(user))
     }.map { it.toDomain() }
       .subscribeOn(Schedulers.boundedElastic())
   }

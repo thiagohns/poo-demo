@@ -6,18 +6,36 @@ import demo.exercicio_4.cleanarch.domain.model.User
 import demo.exercicio_4.repository.UserRepository
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
-import reactor.core.scheduler.Schedulers
 
 @Component
 class GetUserByIdH2(
   private val repository: UserRepository
 ) : GetUserByIdGateway {
 
-  override fun execute(userId: String): Mono<User> {
+  override fun execute(id: String): Mono<User> {
     return Mono.fromCallable {
-      repository.findByUserId(userId)
-    }.map<User?> { it!!.toDomain() }
-      .doOnError { UserNotFoundException::class.java }
-      .subscribeOn(Schedulers.boundedElastic())
+      repository.findById(id)
+        .map { it.toDomain() }
+        .orElseThrow {
+          UserNotFoundException("Registro não encontrado")
+        }
+    }
   }
 }
+
+
+//override fun execute(id: String): UserDTO {
+//  return repository.findById(id)
+//    .map {
+//      it.toDomain()
+//    }.orElseThrow {
+//      UserNotFoundException("Registro não encontrado")
+//    }
+//}
+//    return Mono.fromCallable {
+//      repository.findForId(id)
+//    }.map { it!!.toDomain() }
+//      .doOnError { UserNotFoundException::class.java }
+//      .subscribeOn(Schedulers.boundedElastic())
+//  }
+

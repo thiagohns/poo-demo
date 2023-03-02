@@ -10,44 +10,40 @@ import javax.persistence.Table
 @Entity
 @Table(name = "user_addresses")
 data class AddressEntity(
-  val userId: Long,
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  val id: Long? = null,
   val zipCode: String,
   val type: String,
   val number: String,
-  var street: String,
-  var complement: String,
+  val publicPlace: String,
   var district: String,
-  var city: String,
-  var state: String,
-  ) {
+  val locality: String,
+  var state: String
+  //  var street: String,
+//  var complement: String,
+  //  var city: String,
+) {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  val id: Long? = null
+  fun toDomain(address: Address) = AddressEntity(
+    zipCode = address.zipCode,
+    type = address.type,
+    number = address.number,
+    publicPlace = address.publicPlace,
+    district = address.district,
+    state = address.state,
+    locality = address.locality,
+  )
 
-  companion object {
-    fun fromDomain(address: Address) = AddressEntity(
-      userId = address.userId,
-      zipCode = address.zipCode,
-      type = address.type,
-      number = address.number,
-      street = address.street,
-      complement = address.complement,
-      district = address.district,
-      city = address.city,
-      state = address.state,
-    )
-  }
 
-  fun toDomain() = Address(
-    userId = userId,
+  fun fromDomain() = AddressEntity(
     zipCode = zipCode,
     type = type,
     number = number,
-    street = street,
-    complement = complement,
+    publicPlace = publicPlace,
     district = district,
-    city = city,
-    state = state
+    state = state,
+    locality = locality
   )
+
 }
