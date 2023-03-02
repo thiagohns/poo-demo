@@ -9,6 +9,6 @@ class UpdateEmailUserUseCase (
     private val updateEmailUserGateway: UpdateEmailUserGateway
 ) {
     fun execute(userDto: UserDTO) {
-        updateEmailUserGateway.execute(userDto.Id, userDto.email)
+        updateEmailUserGateway.execute(userDto)
     }
 }

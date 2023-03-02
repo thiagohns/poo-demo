@@ -11,7 +11,6 @@ class SaveUserH2(private val repository: UserRepository) : SaveUserGateway {
 
   override fun execute(dto: UserDTO) {
     val userToSave = UserEntity(
-      Id = dto.Id,
       name = dto.name,
       email = dto.email,
       password = dto.password

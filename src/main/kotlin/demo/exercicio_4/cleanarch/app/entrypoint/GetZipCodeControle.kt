@@ -14,7 +14,7 @@ class GetZipCodeControle(
   private val zipCodeUserCase: ZipCodeUserCase
 ) {
   @GetMapping("/zipcode/{zipcode}")
-  fun getZipCode(@PathVariable zipcode: String): Mono<ZipAddressesUserDTO> {
+  fun getZipCode(@PathVariable zipcode: String): ZipAddressesUserDTO {
     return zipCodeUserCase.execute(zipcode)
   }
 }

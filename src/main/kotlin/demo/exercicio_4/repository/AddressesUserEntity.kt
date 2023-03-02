@@ -10,7 +10,9 @@ import javax.persistence.Table
 @Entity
 @Table(name = "usersAddresses")
 data class AddressesUserEntity(
-  val id: String,
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY )
+  val id: Long? = null,
   val zip: String,
   val type: String,
   val number: String,
@@ -18,12 +20,10 @@ data class AddressesUserEntity(
   val district: String,
   val locality: String,
   val state: String
-
 ) {
 
   fun toDomain() =
     AddressDTO(
-      id = id,
       zip = zip,
       type = type,
       number = number,
@@ -33,9 +33,8 @@ data class AddressesUserEntity(
       state = state
     )
 
-  fun fromDomin(addressDTO: AddressDTO) =
+  fun fromDomain(addressDTO: AddressDTO) =
     AddressesUserEntity(
-      id= addressDTO.id,
       zip = addressDTO.zip,
       type = addressDTO.type,
       number = addressDTO.number,

@@ -15,6 +15,7 @@ class SaveUserUseCase(
     userDto.addressesUser
       ?.map {
         zipAddressGateway.execute(it.zip)
+
       }
     saveUserGateway.execute(userDto)
   }

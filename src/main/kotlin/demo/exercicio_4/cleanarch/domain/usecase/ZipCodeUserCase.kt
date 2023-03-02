@@ -10,7 +10,7 @@ class ZipCodeUserCase(
   private val zipAddressHttpGateway: ZipAddressHttpGateway
 ) {
 
-  fun execute(zipcode: String): Mono<ZipAddressesUserDTO> {
-      return zipAddressHttpGateway.getZipCode(zipcode)
+  fun execute(zipcode: String): ZipAddressesUserDTO {
+      return zipAddressHttpGateway.execute(zipcode)
   }
 }
