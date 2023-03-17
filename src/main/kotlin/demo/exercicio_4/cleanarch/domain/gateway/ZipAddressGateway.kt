@@ -5,5 +5,5 @@ import reactor.core.publisher.Mono
 
 interface ZipAddressGateway {
 
-  fun execute(zip: String): ZipAddressesUserDTO
+  fun execute(zip: String): ZipAddressesUserDTO?
 }

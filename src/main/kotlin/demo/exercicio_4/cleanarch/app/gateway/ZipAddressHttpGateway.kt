@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono
 class ZipAddressHttpGateway(
     val webClient: WebClient
 ): ZipAddressGateway {
-    override fun execute(zipCode: String): ZipAddressesUserDTO {
+    override fun execute(zipCode: String): ZipAddressesUserDTO? {
         return webClient.get()
             .uri {
                 it.path("/$zipCode/json")
